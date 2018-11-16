@@ -7,29 +7,30 @@
 char **reconstruct_trip(Ticket **tickets, int length)
 {
   printf("start reconstruct_trip");
-  HashTable *hash = create_hash_table(16);
+  HashTable *ht = create_hash_table(16);
   char **route = malloc(length * sizeof(char *));
 
   for(int i = 0; i < length; i++){
     printf(" i = %d\n", i);
     printf(" tickets[i] = %d\n", tickets[i]);
-    hash_table_insert(hash, tickets[i]->source, tickets[i]->destination);
+    hash_table_insert(ht, tickets[i]->source, tickets[i]->destination);
   }
 
-  // route[0] = hash->storage[NONE];
+  // route[0] = ht->storage[NONE];
   printf("route[0] = %s", route[0]);
   //shoudl be LAX 
   for(int j = 1; j < length; j++){
-    // char *next = hash->storage["NONE"]->destination;
+    // char *next = ht->storage["NONE"]->destination;
     printf("inside j loop");
-    char *previous = route[j-1];
+    // char *previous = route[j-1];
     //MAKE HASH OF previous to get index
-    printf("$d", hash->storage[hashIndex]);
-    route[j] = hash->storage[hashIndex];
-    // next = hash->storage[next]->destination;
+    unsigned int hashIndex = hash(route[j-1], ht->capacity);
+    printf("$d", ht->storage[hashIndex]);
+    route[j] = ht->storage[hashIndex];
+    // next = ht->storage[next]->destination;
   }
 
-  // route[0] = hash->storage->NONE;
+  // route[0] = ht->storage->NONE;
   // for (int i = 0; i < length; i++){
   //   route[i] = tickets[]
   // }
