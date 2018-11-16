@@ -35,17 +35,19 @@ HashTable *create_hash_table(int capacity)
   return ht;
 }
 
-Answer *create_answer(int *larger, int *smaller)
-{
-  Answer *ans = malloc(sizeof(Answer));
-  ans->index_1 = larger;
-  ans->index_2 = smaller;
+// Answer *create_answer(int *larger, int *smaller)
+// {
+//   Answer *ans = malloc(sizeof(Answer));
+//   ans->index_1 = larger;
+//   ans->index_2 = smaller;
 
-  return ans;
-}
+//   return ans;
+// }
 
 void hash_table_insert(HashTable *ht, int key, int value)
 {
+  printf("\n\ninside hash_table_insert\n\n");
+
   unsigned int index = hash(key, ht->capacity);
 
   LinkedPair *current_pair = ht->storage[index];
@@ -63,6 +65,7 @@ void hash_table_insert(HashTable *ht, int key, int value)
     new_pair->next = ht->storage[index];
     ht->storage[index] = new_pair;
   }
+  printf("\n\complete hash_table_insert\n\n");
 }
 
 void hash_table_remove(HashTable *ht, int key)

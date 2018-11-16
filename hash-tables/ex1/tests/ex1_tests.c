@@ -6,7 +6,7 @@ char *test_ex1()
 {
   int weights_1 = {9};
   Answer *answer_1 = get_indices_of_item_weights(&weights_1, 1, 9);
-  printf("\n\nthis is the answer %d\n\n", answer_1->index_1);
+  printf("\n\ntest suite answer 2 returned as -> %d\n\n", answer_1->index_1);
   mu_assert(answer_1 == NULL, "Your function did not return the expected answer for input {9}");
 
   int weights_2[] = {4, 4};
