@@ -23,8 +23,9 @@ char **reconstruct_trip(Ticket **tickets, int length)
     // char *next = hash->storage["NONE"]->destination;
     printf("inside j loop");
     char *previous = route[j-1];
-    printf("$d", hash->storage[previous])
-    route[j] = hash->storage[previous];
+    //MAKE HASH OF previous to get index
+    printf("$d", hash->storage[hashIndex]);
+    route[j] = hash->storage[hashIndex];
     // next = hash->storage[next]->destination;
   }
 
