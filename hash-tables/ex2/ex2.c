@@ -16,17 +16,17 @@ char **reconstruct_trip(Ticket **tickets, int length)
     hash_table_insert(hash, tickets[i]->source, tickets[i]->destination);
   }
 
- 
-  route[0] = hash->storage["NONE"];
+  // route[0] = hash->storage[NONE];
   printf("route[0] = %s", route[0]);
   //shoudl be LAX 
   for(int j = 1; j < length; j++){
     // char *next = hash->storage["NONE"]->destination;
-    // printf("inside j loop");
-    route[j] = hash->storage[route[(j-0)]];
+    printf("inside j loop");
+    char *previous = route[j-1];
+    printf("$d", hash->storage[previous])
+    route[j] = hash->storage[previous];
     // next = hash->storage[next]->destination;
   }
-
 
   // route[0] = hash->storage->NONE;
   // for (int i = 0; i < length; i++){
@@ -42,29 +42,31 @@ void print_route(char **route, int length)
     printf("%s\n", route[i]);
   }
 }
-#ifndef TESTING
+
+ #ifndef TESTING
 int main(void)
 {
-  
-  typedef struct Ticket {
-    char *source;
-    char *destination;
-  } Ticket;
 
-  Ticket **ticketsss = {
-    { source: "PIT", destination: "ORD" },
-    { source: "XNA", destination: "CID" },
-    { source: "SFO", destination: "BHM" },
-    { source: "FLG", destination: "XNA" },
-    { source: "NONE", destination: "LAX" },
-    { source: "LAX", destination: "SFO" },
-    { source: "CID", destination: "SLC" },
-    { source: "ORD", destination: "NONE" },
-    { source: "SLC", destination: "PIT" },
-    { source: "BHM", destination: "FLG" }
-  };
 
-  Ticket* answer_4 = reconstruct_trip(ticketsss, 10);
+  Ticket **tickets = malloc(3 * sizeof(Ticket *));
+
+  Ticket *ticket_1 = malloc(sizeof(Ticket));
+  ticket_1->source = "NONE";
+  ticket_1->destination = "PDX";
+  tickets[0] = ticket_1;
+
+  Ticket *ticket_2 = malloc(sizeof(Ticket));
+  ticket_2->source = "PDX";
+  ticket_2->destination = "DCA";
+  tickets[1] = ticket_2;
+
+  Ticket *ticket_3 = malloc(sizeof(Ticket));
+  ticket_3->source = "DCA";
+  ticket_3->destination = "NONE";
+  tickets[2] = ticket_3;
+
+  // char *expected[] = { "PDX", "DCA", "NONE" };
+  print_route(reconstruct_trip(tickets, 3), 3);
 
   return 0;
 }

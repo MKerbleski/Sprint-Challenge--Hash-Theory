@@ -72,7 +72,6 @@ A     B     C     result
 1     1     1       0
 ```
 
-
 ```js
 
 var problem1 = function(a, b) {
@@ -88,25 +87,24 @@ var problem3 = function(a, b, c) {
   return ans;
 }
 
+console.log(`p1, q1 ->${problem1(false, false)}`)
+console.log(`p1, q2 ->${problem1(false, true)}`)
+console.log(`p1, q3 ->${problem1(true, false)}`)
+console.log(`p1, q4 ->${problem1(true, true)}\n`)
 
-console.log(`question 1 problem 1 ->${problem1(false, false)}`)
-console.log(`question 2 problem 1 ->${problem1(false, true)}`)
-console.log(`question 3 problem 1 ->${problem1(true, false)}`)
-console.log(`question 4 problem 1 ->${problem1(true, true)}\n`)
+console.log(`p2, q1 ->${problem2(false, false)}`)
+console.log(`p2, q2 ->${problem2(false, true)}`)
+console.log(`p2, q3 ->${problem2(true, false)}`)
+console.log(`p2, q4 ->${problem2(true, true)}\n`)
 
-console.log(`question 1 problem 2 ->${problem2(false, false)}`)
-console.log(`question 2 problem 2 ->${problem2(false, true)}`)
-console.log(`question 3 problem 2 ->${problem2(true, false)}`)
-console.log(`question 4 problem 2 ->${problem2(true, true)}\n`)
-
-console.log(`question 1 problem 3->${problem3(false, false, false)}`);
-console.log(`question 2 problem 3->${problem3(false, false, true)}`);
-console.log(`question 3 problem 3->${problem3(false, true, false)}`);
-console.log(`question 4 problem 3->${problem3(false, true, true)}`);
-console.log(`question 5 problem 3->${problem3(true, false, false)}`);
-console.log(`question 6 problem 3->${problem3(true, false, true)}`);
-console.log(`question 7 problem 3->${problem3(true, true, false)}`);
-console.log(`question 8 problem 3->${problem3(true, true, true)}\n`);
+console.log(`p3, q1->${problem3(false, false, false)}`);
+console.log(`p3, q2->${problem3(false, false, true)}`);
+console.log(`p3, q3->${problem3(false, true, false)}`);
+console.log(`p3, q4->${problem3(false, true, true)}`);
+console.log(`p3, q5->${problem3(true, false, false)}`);
+console.log(`p3, q6->${problem3(true, false, true)}`);
+console.log(`p3, q7->${problem3(true, true, false)}`);
+console.log(`p3, q8->${problem3(true, true, true)}\n`);
 ```
 
 ## STRETCH GOAL

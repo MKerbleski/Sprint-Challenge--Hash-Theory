@@ -33,7 +33,6 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
       ans->index_1 = weights[j];
       ans->index_2 = ht->storage[searchFor]->key;
       return ans;
-      //this is also producing a memory leak
     } else {
       return NULL;
     }
