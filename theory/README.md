@@ -41,20 +41,20 @@ Fill out truth tables for the following expressions:
 ```
 A     B     result
 -------------------
-0     0       ?
-0     1       ?
-1     0       ?
-1     1       ?
+0     0       0
+0     1       0
+1     0       1
+1     1       0
 ```
-
-2. `(¬A ∨ B) ∧ ¬(A ∧ ¬B)`   (alternate: `(!A || B) && !(A && !B)`)
+                                           t            f                          
+2. `(¬A ∨ B) ∧ ¬(A ∧ ¬B)`   (alternate: `(!A || B) && (!A && B)`)
 ```
 A     B     result
 -------------------
-0     0       ?
-0     1       ?
-1     0       ?
-1     1       ?
+0     0       1
+0     1       1
+1     0       0
+1     1       1
 ```
 
 3. `¬(A ∧ B) ∨ ( (A ∧ C) ∧ ¬(B ∨ ¬C) )`   (alternate: `!(A && B) || ( (A && C) && !(B || !C) )`)
@@ -62,14 +62,51 @@ A     B     result
 ```
 A     B     C     result
 -------------------------
-0     0     0       ?
-0     0     1       ?
-0     1     0       ?
-0     1     1       ?
-1     0     0       ?
-1     0     1       ?
-1     1     0       ?
-1     1     1       ?
+0     0     0       1
+0     0     1       1
+0     1     0       1
+0     1     1       1
+1     0     0       1
+1     0     1       1
+1     1     0       0
+1     1     1       0
+```
+
+
+```js
+
+var problem1 = function(a, b) {
+  ans = (a && !b);
+  return ans;
+}
+var problem2 = function(a, b) {
+  ans = (!a || b) && !(a && !b);
+  return ans;
+}
+var problem3 = function(a, b, c) {
+  ans = !(a && b) || ( (a && c) && !(b || !c) );
+  return ans;
+}
+
+
+console.log(`question 1 problem 1 ->${problem1(false, false)}`)
+console.log(`question 2 problem 1 ->${problem1(false, true)}`)
+console.log(`question 3 problem 1 ->${problem1(true, false)}`)
+console.log(`question 4 problem 1 ->${problem1(true, true)}\n`)
+
+console.log(`question 1 problem 2 ->${problem2(false, false)}`)
+console.log(`question 2 problem 2 ->${problem2(false, true)}`)
+console.log(`question 3 problem 2 ->${problem2(true, false)}`)
+console.log(`question 4 problem 2 ->${problem2(true, true)}\n`)
+
+console.log(`question 1 problem 3->${problem3(false, false, false)}`);
+console.log(`question 2 problem 3->${problem3(false, false, true)}`);
+console.log(`question 3 problem 3->${problem3(false, true, false)}`);
+console.log(`question 4 problem 3->${problem3(false, true, true)}`);
+console.log(`question 5 problem 3->${problem3(true, false, false)}`);
+console.log(`question 6 problem 3->${problem3(true, false, true)}`);
+console.log(`question 7 problem 3->${problem3(true, true, false)}`);
+console.log(`question 8 problem 3->${problem3(true, true, true)}\n`);
 ```
 
 ## STRETCH GOAL
